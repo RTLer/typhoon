@@ -69,6 +69,7 @@ resource "null_resource" "copy-controller-secrets" {
       "sudo mv etcd-peer.key /etc/ssl/etcd/etcd/peer.key",
       "sudo chown -R etcd:etcd /etc/ssl/etcd",
       "sudo chmod -R 500 /etc/ssl/etcd",
+      "sudo mkdir -p /etc/kubernetes",
       "sudo mv $HOME/kubeconfig /etc/kubernetes/kubeconfig",
     ]
   }
