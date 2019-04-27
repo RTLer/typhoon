@@ -101,8 +101,7 @@ resource "null_resource" "copy-worker-secrets" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo mkdir -p /etc/kubernetes",
-      "sudo mv $HOME/kubeconfig /etc/kubernetes/kubeconfig",
+      "sudo echo ${module.bootkube.kubeconfig-kubelet} > /etc/kubernetes/kubeconfig"
     ]
   }
 }
